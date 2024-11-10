@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Shell Game</title>
+
+    <style>
+        .container {
+            display: flex;
+        }
+        #first { order: 1; }
+        #second { order: 2; }
+        #third { order: 3; }
+        #messageDisplay {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: green;
+        }
+    </style>
+
+    <script>
+        function WinnerMessage() {
+            document.getElementById("messageDisplay").innerHTML = "You Won!";
+        }
+
+        function TryAgain() {
+            document.getElementById("messageDisplay").innerHTML = "Wrong Shell - Try Again";
+        }
+
+        function ShuffleShells() {
+            document.getElementById("first").style.order = Math.floor((Math.random() * 3) + 1);
+            document.getElementById("second").style.order = Math.floor((Math.random() * 3) + 1);
+            document.getElementById("third").style.order = Math.floor((Math.random() * 3) + 1);
+        }
+    </script>
+</head>
+
+<body onload="ShuffleShells();">
+    <h1>JavaScript Shell Game</h1>
+    <p>Pick a shell to find the hidden item!</p>
+
+    <div class="container">
+        <img id="first" src="shell1.png" alt="Shell 1" onclick="WinnerMessage();">
+        <img id="second" src="shell2.png" alt="Shell 2" onclick="TryAgain();">
+        <img id="third" src="shell3.png" alt="Shell 3" onclick="TryAgain();">
+    </div>
+
+    <div id="messageDisplay"></div>
+</body>
+</html>
