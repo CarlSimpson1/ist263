@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Slideshow</title>
+    <style>
+        body {
+            background-color: black; 
+            color: white; 
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .planet-image, .planet-info {
+            display: none; 
+        }
+        #mercury, #mercury-info {
+            display: block; 
+        }
+
+        #thumbnails {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .thumbnail-container {
+            text-align: center;
+        }
+        .thumbnail {
+            cursor: pointer;
+            margin: 5px;
+            width: 100px;
+            border: 2px solid yellow;
+        }
+        .thumbnail-label {
+            margin-top: 5px;
+            font-size: 14px;
+            color: white;
+        }
+        #slideshow-container {
+            margin: 20px;
+        }
+        .planet-info {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Planet Slideshow</h1>
+
+<div id="slideshow-container">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png" id="mercury" class="planet-image" alt="Mercury">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png" id="venus" class="planet-image" alt="Venus">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png" id="earth" class="planet-image" alt="Earth">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png" id="mars" class="planet-image" alt="Mars">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png" id="jupiter" class="planet-image" alt="Jupiter">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png" id="saturn" class="planet-image" alt="Saturn">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png" id="uranus" class="planet-image" alt="Uranus">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png" id="neptune" class="planet-image" alt="Neptune">
+
+    <div id="mercury-info" class="planet-info">Mercury is the smallest and innermost planet in the Solar System.</div>
+    <div id="venus-info" class="planet-info">Venus is the second planet from the Sun.</div>
+    <div id="earth-info" class="planet-info">Earth is the third planet from the Sun and the only astronomical object known to harbor life.</div>
+    <div id="mars-info" class="planet-info">Mars is a terrestrial planet with a thin atmosphere.</div>
+    <div id="jupiter-info" class="planet-info">Jupiter is the fifth planet from the Sun and the largest in the Solar System.</div>
+    <div id="saturn-info" class="planet-info">Saturn is the sixth planet from the Sun and the second-largest in the Solar System.</div>
+    <div id="uranus-info" class="planet-info">Uranus is the seventh planet from the Sun.</div>
+    <div id="neptune-info" class="planet-info">Neptune is the eighth and farthest-known planet from the Sun.</div>
+</div>
+
+<div id="thumbnails">
+    <div class="thumbnail-container">
+        <img src="https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png" class="thumbnail" onclick="PlanetsOff(); showMercury()" alt="Mercury Thumbnail">
+        <div class="thumbnail-label">Mercury</div>
+    </div>
+    <div class="thumbnail-container">
+        <img src="https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png" class="thumbnail" onclick="PlanetsOff(); showVenus()" alt="Venus Thumbnail">
+        <div class="thumbnail-label">Venus</div>
+    </div>
+    <div class="thumbnail-container">
+        <img src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png" class="thumbnail" onclick="PlanetsOff(); showEarth()" alt="Earth Thumbnail">
+        <div class="thumbnail-label">Earth</div>
+    </div>
+    <div class="thumbnail-container">
+        <img src="https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png" class="thumbnail" onclick="PlanetsOff(); showMars()" alt="Mars Thumbnail">
+        <div class="thumbnail-label">Mars</div>
+    </div>
+    <div class="thumbnail-container">
+        <img src="https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png" class="thumbnail" onclick="PlanetsOff(); showJupiter()" alt="Jupiter Thumbnail">
+        <div class="thumbnail-label">Jupiter</div>
+    </div>
+    <div class="thumbnail-container">
+        <img src="https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png" class="thumbnail" onclick="PlanetsOff(); showSaturn()" alt="Saturn Thumbnail">
+        <div class="thumbnail-label">Saturn</div>
+    </div>
+    <div class="thumbnail-container">
+        <img src="https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png" class="thumbnail" onclick="PlanetsOff(); showUranus()" alt="Uranus Thumbnail">
+        <div class="thumbnail-label">Uranus</div>
+    </div>
+    <div class="thumbnail-container">
+        <img src="https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png" class="thumbnail" onclick="PlanetsOff(); showNeptune()" alt="Neptune Thumbnail">
+        <div class="thumbnail-label">Neptune</div>
+    </div>
+</div>
+
+<script>
+
+    function PlanetsOff() {
+        document.getElementById('mercury').style.display = 'none';
+        document.getElementById('venus').style.display = 'none';
+        document.getElementById('earth').style.display = 'none';
+        document.getElementById('mars').style.display = 'none';
+        document.getElementById('jupiter').style.display = 'none';
+        document.getElementById('saturn').style.display = 'none';
+        document.getElementById('uranus').style.display = 'none';
+        document.getElementById('neptune').style.display = 'none';
+
+        document.getElementById('mercury-info').style.display = 'none';
+        document.getElementById('venus-info').style.display = 'none';
+        document.getElementById('earth-info').style.display = 'none';
+        document.getElementById('mars-info').style.display = 'none';
+        document.getElementById('jupiter-info').style.display = 'none';
+        document.getElementById('saturn-info').style.display = 'none';
+        document.getElementById('uranus-info').style.display = 'none';
+        document.getElementById('neptune-info').style.display = 'none';
+    }
+
+    function showMercury() {
+        document.getElementById('mercury').style.display = 'block';
+        document.getElementById('mercury-info').style.display = 'block';
+    }
+
+    function showVenus() {
+        document.getElementById('venus').style.display = 'block';
+        document.getElementById('venus-info').style.display = 'block';
+    }
+
+    function showEarth() {
+        document.getElementById('earth').style.display = 'block';
+        document.getElementById('earth-info').style.display = 'block';
+    }
+
+    function showMars() {
+        document.getElementById('mars').style.display = 'block';
+        document.getElementById('mars-info').style.display = 'block';
+    }
+
+    function showJupiter() {
+        document.getElementById('jupiter').style.display = 'block';
+        document.getElementById('jupiter-info').style.display = 'block';
+    }
+
+    function showSaturn() {
+        document.getElementById('saturn').style.display = 'block';
+        document.getElementById('saturn-info').style.display = 'block';
+    }
+
+    function showUranus() {
+        document.getElementById('uranus').style.display = 'block';
+        document.getElementById('uranus-info').style.display = 'block';
+    }
+
+    function showNeptune() {
+        document.getElementById('neptune').style.display = 'block';
+        document.getElementById('neptune-info').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
